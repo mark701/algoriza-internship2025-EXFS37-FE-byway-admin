@@ -1,4 +1,6 @@
 // src/services/apiAxios.js
+import { useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 import { API_BASE_URL } from './ApiUrl';
 import { isTokenExpired } from './TokenExpire';
@@ -12,6 +14,7 @@ const apiAxios = axios.create({
 
 // Add Authorization header if token exists
 apiAxios.interceptors.request.use((config) => {
+  
   const token = localStorage.getItem('token');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
@@ -28,9 +31,10 @@ apiAxios.interceptors.response.use(
 
     }
     if (error.response?.status === 401) {
+      const navigate = useNavigate();
       alert("Session is ended");
       localStorage.removeItem('token');
-      window.location.href = '/';
+      navigate('/');
     }
     return Promise.reject(error);
   }

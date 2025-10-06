@@ -1,5 +1,8 @@
 
+import { useNavigate } from 'react-router-dom';
+
 export const isTokenExpired = (token) => {
+  const navigate = useNavigate();
   if (!token) return true;
 
   try {
@@ -9,7 +12,7 @@ export const isTokenExpired = (token) => {
     if (payload.exp < currentTime) {
       alert("Your session has expired. Please login again.");
       localStorage.removeItem('token');
-      window.location.href = '/';
+      navigate('/');
       return true;
     }
 
