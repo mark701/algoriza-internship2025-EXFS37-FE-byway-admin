@@ -1,3 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.ck-editor__editable_inline {
+  min-height: 300px !important;
+}
+
+@layer components {
+  /* General button base */
+  .btn {
+    @apply flex-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors select-none;
+  }
+
+  /* Dark primary button (like Sign In) */
+  .btn-primary {
+    @apply bg-gray-900 text-white hover:bg-gray-800;
+  }
+
+  /* Social buttons (Facebook, Google, Microsoft, etc.) */
+  .btn-social {
+    @apply border border-gray-300 hover:bg-gray-50;
+  }
+  .input-Rounded{
+    @apply w-full rounded-lg placeholder-gray-500 ;
+  }
+
+
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .BorderPadding{
+     @apply px-4 py-3 border;
+  }
+  .FocusBorder{
+    @apply focus:ring-blue-500 focus:border-blue-500 border-gray-300 outline-none transition-colors ;
+  }
+  .LabelFont{
+    @apply block text-sm font-medium;
+  }
+
+  .FlexScreen{
+   @apply flex  h-screen;
+  }
+  .SideBarBorder{
+    @apply w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors
+  }
+  .SideBarHover{
+    @apply text-gray-600 hover:bg-gray-50;
+  }
+  .SideBarActive{
+    @apply bg-blue-50 text-blue-600 border-r-2 border-blue-600;
+  }
+}
+
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
