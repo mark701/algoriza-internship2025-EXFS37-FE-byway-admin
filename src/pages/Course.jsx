@@ -162,7 +162,7 @@ const Course = () => {
 
           <button className="relative mx-8 p-2 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
             <div className="w-6 h-6 flex items-center justify-center">
-              <img src="/Assets/Icons/notification.png" alt="notification" />
+              <img src={`${process.env.PUBLIC_URL}/Assets/Icons/notification.png`} alt="notification" />
             </div>
             <span className="absolute top-2 right-2 block w-3 h-3 rounded-full bg-red-500 border-2 border-white"></span>
           </button>
@@ -241,7 +241,7 @@ const Course = () => {
                   {/* Search Input */}
                   <div className="relative">
                     <img
-                      src="/Assets/Icons/Search.png"
+                      src={`${process.env.PUBLIC_URL}/Assets/Icons/Search.png`}
                       alt="Search"
                       className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4"
                     />
@@ -256,7 +256,7 @@ const Course = () => {
                   </div>
 
                   <button className="bg-gray-50 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg hover:bg-gray-200 transition-colors">
-                    <img src="/Assets/Icons/list.png" alt="list " />
+                    <img src={`${process.env.PUBLIC_URL}/Assets/Icons/list.png`} alt="list " />
                   </button>
                 </div>
               </div>

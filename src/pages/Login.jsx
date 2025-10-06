@@ -122,23 +122,23 @@ const Login = () => {
 
           <div className="grid grid-cols-3 gap-3">
             <button onClick={() => handleSocialSignIn("Facebook")} className="btn btn-social text-blue-700" > 
-              <img src="/Assets/Icons/Facebook.png"  alt="Google" className="w-5 h-5"/>
+              <img src={`${process.env.PUBLIC_URL}/Assets/Icons/Facebook.png`} alt="Google" className="w-5 h-5"/>
               Facebook
             </button>
 
             <button onClick={() => handleSocialSignIn("Google")}className="btn btn-social text-red-500 gap-1">
-              <img src="/Assets/Icons/google.png"  alt="Google"className="w-5 h-5"/>
+              <img src={`${process.env.PUBLIC_URL}/Assets/Icons/google.png`}  alt="Google"className="w-5 h-5"/>
               Google
             </button>
 
             <button onClick={() => handleSocialSignIn("Microsoft")} className="btn btn-social">
-             <img src="/Assets/Icons/Micosoft.png"alt="Micosoft"className="w-5 h-5"/>Micosoft</button>
+             <img src={`${process.env.PUBLIC_URL}/Assets/Icons/Micosoft.png`}alt="Micosoft"className="w-5 h-5"/>Micosoft</button>
           </div>
         </div>
       </div>
 
       <div className="flex-1  relative hidden lg:block">
-        <img src="/Assets/Images/SignImage.png" alt="Login background" className="h-full w-full object-cover"/>
+        <img src={`${process.env.PUBLIC_URL}/Assets/Images/SignImage.png`} alt="Login background" className="h-full w-full object-cover"/>
       </div>
 
        {error && (

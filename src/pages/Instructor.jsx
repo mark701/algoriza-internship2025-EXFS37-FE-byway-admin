@@ -167,7 +167,7 @@ export default function Instructor() {
 
           <button className="relative mx-8 p-2 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
             <div className="w-6 h-6 flex items-center justify-center">
-              <img src="/Assets/Icons/notification.png" alt="notification" />
+              <img src={`${process.env.PUBLIC_URL}/Assets/Icons/notification.png`} alt="notification" />
             </div>
             <span className="absolute top-2 right-2 block w-3 h-3 rounded-full bg-red-500 border-2 border-white"></span>
           </button>
@@ -191,7 +191,7 @@ export default function Instructor() {
 
               <div className="relative">
                 <img
-                  src="/Assets/Icons/Search.png"
+                  src={`${process.env.PUBLIC_URL}/Assets/Icons/Search.png`}
                   alt="Search"
                   className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4"
                 />
@@ -204,7 +204,7 @@ export default function Instructor() {
                 />
               </div>
               <button className="bg-gray-50 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg hover:bg-gray-200 transition-colors">
-                <img src="/Assets/Icons/list.png" alt="list " />
+                <img src={`${process.env.PUBLIC_URL}/Assets/Icons/list.png`} alt="list " />
               </button>
 
             </div>
@@ -243,14 +243,14 @@ export default function Instructor() {
                       <div className="flex items-center gap-3">
                         <button onClick={() => handleInstructorClick(instructor, "View")}
                           className="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors">
-                          <img src="/Assets/Icons/eye.png" alt="eye" />
+                          <img src={`${process.env.PUBLIC_URL}/Assets/Icons/eye.png`} alt="eye" />
                         </button >
                         <button onClick={() => handleInstructorClick(instructor, "Update")} className="p-1.5 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded transition-colors">
-                          <img src="/Assets/Icons/pencil.png" alt="pencil" />
+                          <img src={`${process.env.PUBLIC_URL}/Assets/Icons/pencil.png`} alt="pencil" />
                         </button>
                         <button onClick={() => handleDeleteClick(instructor)}
                           className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors">
-                          <img src="/Assets/Icons/trash.png" alt="trash" />
+                          <img src={`${process.env.PUBLIC_URL}/Assets/Icons/trash.png`} alt="trash" />
                         </button>
                       </div>
                     </td>

@@ -10,9 +10,9 @@ import FailedRequest from "../components/FailedRequest";
 const Dashboard = () => {
 
   const [stats, setStats] = useState([
-    { label: "Instructors", value: 0, service: instructorServices.getCount, icon: "/Assets/Icons/user.png" },
-    { label: "Categories", value: 0, service: CategoryServices.getCount, icon: "/Assets/Icons/Icon.png" },
-    { label: "Courses", value: 0, service: CourseServices.getCount, icon: "/Assets/Icons/folder.png" },
+    { label: "Instructors", value: 0, service: instructorServices.getCount, icon: `${process.env.PUBLIC_URL}/Assets/Icons/user.png` },
+    { label: "Categories", value: 0, service: CategoryServices.getCount, icon: `${process.env.PUBLIC_URL}/Assets/Icons/Icon.png` },
+    { label: "Courses", value: 0, service: CourseServices.getCount, icon: `${process.env.PUBLIC_URL}/Assets/Icons/folder.png` },
   ]);
 
   const [error, setError] = useState('');
@@ -74,7 +74,7 @@ const Dashboard = () => {
           <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
           <button className="relative p-2 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
             <div className="w-6 h-6 flex items-center justify-center">
-              <img src="/Assets/Icons/notification.png" alt="notification" />
+              <img src={`${process.env.PUBLIC_URL}/Assets/Icons/notification.png`} alt="notification" />
             </div>
 
             <span className="absolute top-2 right-2  block w-3 h-3 rounded-full bg-red-500 border-2 border-white"></span>
