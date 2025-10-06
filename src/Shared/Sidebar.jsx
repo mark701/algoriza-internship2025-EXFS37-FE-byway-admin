@@ -38,7 +38,7 @@ const Sidebar = () => {
         <div className="p-6">
           <div className="flex items-center  space-x-3">
             <div className="w-8 h-8 flex-center mx-2 ">
-            <img src="/Assets/Icons/logo.png" alt='logo.png'/>
+            <img src={`${process.env.PUBLIC_URL}/Assets/Icons/logo.png`} alt='logo.png'/>
             </div>
             <span className="text-xl font-bold text-gray-800">Byway</span>
           </div>
