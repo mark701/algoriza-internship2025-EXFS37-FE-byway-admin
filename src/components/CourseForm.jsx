@@ -329,7 +329,7 @@ export default function CourseForm({ CourseID, type, categories, onCancel, onSav
                   <div className="flex items-center text-sm text-gray-600 gap-2 pointer-events-none">
                     <img
                       className="w-6 h-6"
-                      src="Assets/Icons/camera.png"
+                      src={`${process.env.PUBLIC_URL}/Assets/Icons/camera.png`}
                       alt="camera"
                     />
                     <span>Upload Image</span>
@@ -609,7 +609,7 @@ export default function CourseForm({ CourseID, type, categories, onCancel, onSav
             {currentStep === 2 && (
               <div className="flex items-center mb-6">
                 <button onClick={prevStep} className="mr-2 p-2 hover:bg-gray-100 rounded-lg flex items-center">
-                  <img src="Assets/Icons/back-arrow.png" className="w-4 h-4" alt="back" />
+                  <img src={`${process.env.PUBLIC_URL}/Assets/Icons/back-arrow.png`} className="w-4 h-4" alt="back" />
                 </button>
                 <h2 className="text-xl font-semibold text-gray-800">Add Content</h2>
               </div>
@@ -677,7 +677,7 @@ export default function CourseForm({ CourseID, type, categories, onCancel, onSav
                       onClick={() => removeContentSection(section.key)}
                       className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
                     >
-                      <img src='Assets/Icons/deleteConfirm.png' alt='' />
+                      <img src={`${process.env.PUBLIC_URL}/Assets/Icons/deleteConfirm.png`} alt='' />
 
                     </button>
                   )}

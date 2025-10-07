@@ -132,7 +132,7 @@ export default function InstructorReview({ isOpen, onClose, instructor, type, on
                         onClick={onClose}
                         className="text-gray-400 hover:text-gray-600 transition-colors"
                     >
-                        <img src="Assets/Icons/cross.png" alt="close" className="w-4 h-4" />
+                        <img src={`${process.env.PUBLIC_URL}/Assets/Icons/cross.png`} alt="close" className="w-4 h-4" />
                     </button>
                 </div>
 
@@ -156,7 +156,7 @@ export default function InstructorReview({ isOpen, onClose, instructor, type, on
                                     />
                                 ) : (
                                     <div className="text-gray-400">
-                                        <img className="w-6 h-6" alt="camera" src="Assets/Icons/camera.png" />
+                                        <img className="w-6 h-6" alt="camera" src={`${process.env.PUBLIC_URL}/Assets/Icons/camera.png`} />
 
                                     </div>
                                 )}

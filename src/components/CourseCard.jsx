@@ -54,18 +54,18 @@ export default function CourseCard({ course, categories, onOpenForm,type,onDelet
           <button
             onClick={() => onOpenForm("View", course)}
             className="p-2 bg-gray-100  border rounded-lg hover:bg-gray-200 transition-colors">
-            <img src="Assets/Icons/eye.png" alt="close" className="w-5 h-5" />
+            <img src={`${process.env.PUBLIC_URL}/Assets/Icons/eye.png`} alt="close" className="w-5 h-5" />
 
           </button>
           <button
             onClick={() => onOpenForm("Update", course)}
             className="p-2 bg-gray-100  border rounded-lg hover:bg-gray-200 transition-colors">
-            <img src="Assets/Icons/pencil.png" alt="close" className="w-5 h-5" />
+            <img src={`${process.env.PUBLIC_URL}/Assets/Icons/pencil.png`} alt="close" className="w-5 h-5" />
 
           </button>
           <button onClick={() => onDeletCourse(course)}
            className="p-2 bg-gray-100  border rounded-lg hover:bg-gray-200  transition-colors">
-            <img src="Assets/Icons/trash.png" alt="close" className="w-5 h-5" />
+            <img src={`${process.env.PUBLIC_URL}/Assets/Icons/trash.png`} alt="close" className="w-5 h-5" />
 
           </button>
         </div>

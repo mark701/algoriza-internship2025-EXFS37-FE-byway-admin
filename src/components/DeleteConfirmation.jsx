@@ -10,13 +10,13 @@ export default function DeleteConfirmation({ isOpen, onClose, onConfirm, name })
           onClick={onClose}
           className="absolute top-4 right-4  transition-colors"
         >
-          <img src="Assets/Icons/cross.png" alt="close" className="w-4 h-4" />
+          <img src={`${process.env.PUBLIC_URL}/Assets/Icons/cross.png`} alt="close" className="w-4 h-4" />
         </button>
 
         <div className="flex justify-center mb-6">
           <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
             <img
-              src="Assets/Icons/deleteConfirm.png"
+              src={`${process.env.PUBLIC_URL}/Assets/Icons/deleteConfirm.png`}
               alt="deleteConfirm"
               className="w-8 h-8"
             />
