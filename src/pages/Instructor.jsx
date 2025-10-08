@@ -47,9 +47,8 @@ export default function Instructor() {
         debugger
         result = await instructorServices.update(data);
         if (result) {
-          const { jobTitleID, ...rest } = result;
           const updatedInstructor = {
-            ...rest,
+            ...result,
             jobTitleName: jobTitle
           };
           setInstructors((prev) =>

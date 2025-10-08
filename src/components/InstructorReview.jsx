@@ -13,6 +13,7 @@ export default function InstructorReview({ isOpen, onClose, instructor, type, on
         InstructorImage: null,
     });
     const [error, setError] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const [previewImage, setPreviewImage] = useState(null);
     const [showDropdown, setShowDropdown] = useState(false);
@@ -72,7 +73,7 @@ export default function InstructorReview({ isOpen, onClose, instructor, type, on
         }
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (type === 'Add') {
             if (
 
@@ -92,7 +93,7 @@ export default function InstructorReview({ isOpen, onClose, instructor, type, on
 
         }
         if (type === "Update") {
-            if (formData.jobTitleID === 0 ||formData.instructorName.trim() === "" ||formData.jobTitle === "Choose" ||
+            if (formData.jobTitleID === 0 || formData.instructorName.trim() === "" || formData.jobTitle === "Choose" ||
                 formData.instructorDescription.trim() === "" ||
                 formData.courseRate === 0
 
@@ -110,7 +111,14 @@ export default function InstructorReview({ isOpen, onClose, instructor, type, on
         if (formData.InstructorImage) {
             data.append("InstructorImage", formData.InstructorImage);
         }
-        onSave(type, data, formData.jobTitle);
+        try {
+            setIsSubmitting(true);
+            await onSave(type, data, formData.jobTitle);
+        } catch (err) {
+            setError("Error submitting form.");
+        } finally {
+            setIsSubmitting(false);
+        }
 
     };
 
@@ -273,9 +281,17 @@ export default function InstructorReview({ isOpen, onClose, instructor, type, on
                         </button>
                         <button
                             onClick={handleSubmit}
-                            className="flex-1 py-3 px-4 text-white bg-gray-900 rounded-lg font-medium hover:bg-gray-800 transition-colors"
+                            disabled={isSubmitting}
+                            className={`flex-1 py-3 px-4 text-white rounded-lg font-medium transition-colors disabled:opacity-50 ${type === "Add"
+                                    ? "bg-blue-600 hover:bg-blue-700"
+                                    : "bg-gray-900 hover:bg-gray-800"
+                                }`}
                         >
-                            {type}
+                            {isSubmitting
+                                ? type === "Add"
+                                    ? "Saving..."
+                                    : "Updating..."
+                                : type}
                         </button>
                     </div>
                 )}

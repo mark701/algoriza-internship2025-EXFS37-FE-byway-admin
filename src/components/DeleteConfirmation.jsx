@@ -1,8 +1,17 @@
-import React from 'react';
+import  { useState } from 'react';
 
 export default function DeleteConfirmation({ isOpen, onClose, onConfirm, name }) {
-  if (!isOpen) return null; 
 
+  const [isDeleting, setIsDeleting] = useState(false);
+  if (!isOpen) return null;
+  const handleConfirm = async () => {
+    setIsDeleting(true);
+    try {
+      await onConfirm(); // Wait for delete operation
+    } finally {
+      setIsDeleting(false); // Re-enable button (in case of error)
+    }
+  };
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="relative bg-white rounded-2xl shadow-xl p-6 w-full max-w-md">
@@ -25,7 +34,7 @@ export default function DeleteConfirmation({ isOpen, onClose, onConfirm, name })
 
         <div className="text-center mb-8">
           <p className="text-gray-600 ">
-            Are you sure you want to delete 
+            Are you sure you want to delete
           </p>
           <p className="text-gray-600 ">
 
@@ -41,10 +50,11 @@ export default function DeleteConfirmation({ isOpen, onClose, onConfirm, name })
             Cancel
           </button>
           <button
-            onClick={onConfirm}
-            className="flex-1 py-3 px-4 text-white bg-red-500 rounded-lg font-medium hover:bg-red-600 transition-colors"
+            onClick={handleConfirm}
+            disabled={isDeleting}
+            className="flex-1 py-3 px-4 text-white bg-red-500 rounded-lg font-medium hover:bg-red-600 transition-colors disabled:opacity-50"
           >
-            Delete
+            {isDeleting ? "Deleting..." : "Delete"}
           </button>
         </div>
       </div>

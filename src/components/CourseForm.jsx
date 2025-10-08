@@ -34,6 +34,7 @@ export default function CourseForm({ CourseID, type, categories, onCancel, onSav
   const [imagePath, SetImagePath] = useState(null);
   const [contentKeyCounter, setContentKeyCounter] = useState(1);
   const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [courseData, setCourseData] = useState({
     courseID: 0,
@@ -282,10 +283,13 @@ export default function CourseForm({ CourseID, type, categories, onCancel, onSav
         formData.append(`content[${index}].lecturesNumber`, parseInt(c.lecturesNumber || 0));
         formData.append(`content[${index}].contentHour`, parseFloat(c.contentHour || 0));
       });
+      setIsSubmitting(true);
 
-      if (onSave) onSave(type, formData);
+      if (onSave) await onSave(type, formData);
     } catch (error) {
       console.error("Submit error:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -702,9 +706,17 @@ export default function CourseForm({ CourseID, type, categories, onCancel, onSav
               {!isViewMode && (
                 <button
                   onClick={handleSubmit}
-                  className="px-8 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+                  disabled={isSubmitting}
+                  className={`flex-1 py-3 px-4 text-white rounded-lg font-medium transition-colors disabled:opacity-50 ${type === "Add"
+                    ? "bg-blue-600 hover:bg-blue-700"
+                    : "bg-gray-900 hover:bg-gray-800"
+                    }`}
                 >
-                  {type === "Update" ? "Update" : "Add"}
+                  {isSubmitting
+                    ? type === "Add"
+                      ? "Saving..."
+                      : "Updating..."
+                    : type}
                 </button>
               )}
             </div>
