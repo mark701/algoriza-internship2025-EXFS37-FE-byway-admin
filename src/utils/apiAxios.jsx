@@ -27,7 +27,7 @@ apiAxios.interceptors.response.use(
   (error) => {
     const token = localStorage.getItem('token');
     if (token && isTokenExpired(token)){
-
+      return
     }
     if (error.response?.status === 401) {
       alert("Session is ended");
