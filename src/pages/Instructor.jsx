@@ -34,9 +34,10 @@ export default function Instructor() {
 
 
       if (actionType === "Add") {
-
+        debugger
         result = await instructorServices.save(data);
         if (result) {
+          result.jobTitleName = jobTitle;
           setInstructors((prev) => [...prev, result]);
           setInstructorCount((prev) => prev + 1);
         }
@@ -83,7 +84,7 @@ export default function Instructor() {
     };
 
     getinstructorPages();
-  }, [pageNumber, searchTerm]); 
+  }, [pageNumber, searchTerm]);
 
 
 
@@ -95,6 +96,7 @@ export default function Instructor() {
   };
 
   const handleInstructorClick = (instructor, type) => {
+    debugger
     setInstructorData(instructor)
     setInstructorOpen(true);
     setTypeInstructor(type)
@@ -123,8 +125,14 @@ export default function Instructor() {
         setInstructors(prev =>
           prev.filter(i => i.instructorID !== selectedInstructorID));
         setInstructorCount(prev => prev - 1);
+        
+        const remainingItemsOnPage = Instructors.length - 1;
+        if (remainingItemsOnPage === 0 && pageNumber > 1) {
+          setPageNumber(pageNumber - 1);
+        }
 
       }
+
 
 
 

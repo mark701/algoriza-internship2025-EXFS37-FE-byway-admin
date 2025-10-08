@@ -111,14 +111,21 @@ const Course = () => {
         setCourseCount((prev) => prev - 1);
         setDeleteModalOpen(false);
         setSelectedCourseToDelete(null);
+
+        const remainingItemsOnPage = course.length - 1;
+        if (remainingItemsOnPage === 0 && pageNumber > 1) {
+          // Go back to previous page if current page will be empty
+          setPageNumber(pageNumber - 1);
+        }
+
       }
     } catch (error) {
       setError(`Error deleting Course: ${error.response.data}`);
 
     }
-      finally {
-        setDeleteModalOpen(false);
-        setSelectedCourseToDelete(null);
+    finally {
+      setDeleteModalOpen(false);
+      setSelectedCourseToDelete(null);
     }
   };
   const openForm = (type, course = null) => {
