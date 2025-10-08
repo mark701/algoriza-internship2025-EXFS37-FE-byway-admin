@@ -7,9 +7,9 @@ export default function DeleteConfirmation({ isOpen, onClose, onConfirm, name })
   const handleConfirm = async () => {
     setIsDeleting(true);
     try {
-      await onConfirm(); // Wait for delete operation
+      await onConfirm(); 
     } finally {
-      setIsDeleting(false); // Re-enable button (in case of error)
+      setIsDeleting(false); 
     }
   };
   return (
