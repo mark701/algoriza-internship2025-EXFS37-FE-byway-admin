@@ -24,7 +24,7 @@ const Login = () => {
 
 
     try {
-      // This will send the exact JSON format you specified
+      debugger
       const response = await AdminServices.login(formData);
       const token = response.data;
       
@@ -37,7 +37,7 @@ const Login = () => {
       }
     } catch (err) { 
       if (err) {
-          setError(err.message);
+          setError(err.response?.data ?? err.message);
     }
     } finally {
       setLoading(false);
