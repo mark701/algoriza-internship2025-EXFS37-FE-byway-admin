@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/algoriza-internship2025-EXFS37-FE-byway-admin/static/css/main.62f81638.css",
-    "main.js": "/algoriza-internship2025-EXFS37-FE-byway-admin/static/js/main.1a7eeff8.js",
+    "main.js": "/algoriza-internship2025-EXFS37-FE-byway-admin/static/js/main.d306262b.js",
     "static/js/453.4afeafec.chunk.js": "/algoriza-internship2025-EXFS37-FE-byway-admin/static/js/453.4afeafec.chunk.js",
     "index.html": "/algoriza-internship2025-EXFS37-FE-byway-admin/index.html",
     "main.62f81638.css.map": "/algoriza-internship2025-EXFS37-FE-byway-admin/static/css/main.62f81638.css.map",
-    "main.1a7eeff8.js.map": "/algoriza-internship2025-EXFS37-FE-byway-admin/static/js/main.1a7eeff8.js.map",
+    "main.d306262b.js.map": "/algoriza-internship2025-EXFS37-FE-byway-admin/static/js/main.d306262b.js.map",
     "453.4afeafec.chunk.js.map": "/algoriza-internship2025-EXFS37-FE-byway-admin/static/js/453.4afeafec.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.62f81638.css",
-    "static/js/main.1a7eeff8.js"
+    "static/js/main.d306262b.js"
   ]
 }
